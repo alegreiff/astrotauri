@@ -6,6 +6,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 
 <MainLayout>
     <h1>About</h1>
+    <button id="boton" >Muestra</button>
     <section>
       <video class="w-full" controls>
         <source src="283-tortuguita.mp4" type="video/mp4"> 
@@ -14,3 +15,24 @@ import MainLayout from "@/layouts/MainLayout.astro";
     </section>
 
   </MainLayout>
+
+  <script>
+import { Window } from "@tauri-apps/api/window"
+import { Webview } from "@tauri-apps/api/webview"
+import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
+
+const ventana = () => {
+    const webview = new WebviewWindow('my-label', {
+  url: '/modal', decorations: true
+});
+
+webview.once('tauri://created', function () {
+ console.log("CREATED")
+});
+webview.once('tauri://error', function (e) {
+    console.log("ERRATED", e)
+});    
+}
+const boton = document.getElementById("boton");
+boton?.addEventListener("click", ventana);
+  </script>

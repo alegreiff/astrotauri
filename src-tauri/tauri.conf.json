@@ -13,10 +13,13 @@
     "windows": [
       {
         "title": "astrotauri",
-        "width": 800,
-        "height": 600,
+        "width": 1280,
+        "height": 720,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "decorations": true,
+        "url": "index.html",
+        "alwaysOnTop": false
       }
     ],
     "security": {
@@ -24,6 +27,7 @@
     }
   },
   "bundle": {
+    "resources": ["../public/**/*","../acets/**/*"],
     "active": true,
     "targets": "all",
     "icon": [

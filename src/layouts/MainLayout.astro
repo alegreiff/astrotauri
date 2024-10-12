@@ -1,4 +1,5 @@
 ---
+import FooterMain from "@/components/FooterMain.astro";
 import NavBar from "@/components/NavBar.astro";
 ---
 
@@ -11,10 +12,15 @@ import NavBar from "@/components/NavBar.astro";
     <title>Astro</title>
   </head>
   <body>
-    <main>
+    <main class="flex flex-col h-screen">
       <NavBar />
 
-      <slot />
+      <section class="grow ">
+        
+        <div class="px-2 min-h-[590px]"><slot /></div>
+        <FooterMain />
+      </section>
+      
     </main>
   </body>
 </html>

@@ -8,5 +8,41 @@ import { Image } from "astro:assets";
 <MainLayout>
     <h1>NautAstro</h1>
     <Image src="/186.jpg" alt="NautAstro" width={300} height={300} />
+    <a href=""></a>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt praesentium esse optio earum pariatur quo magnam quidem minus a repellat atque, similique, illum, doloremque ad omnis quos harum? Odio, voluptates.
+    Quisquam, reprehenderit error numquam deserunt magnam, sunt id laborum accusamus placeat quia vel aperiam perferendis? Laboriosam perferendis architecto placeat sunt. Reiciendis odio neque aliquid, nobis sit est! Optio, ipsa rerum.
+    Placeat voluptate qui molestias ipsa eos ut nulla quisquam sequi nobis quibusdam animi impedit, itaque officia repellendus labore illo voluptatibus ab exercitationem esse optio! Tempora magni molestias consectetur eaque distinctio?
+    Culpa inventore aspernatur rerum eius quod soluta debitis, est vitae voluptatum quam similique, molestiae eveniet neque! Illo, illum eligendi natus, ea rerum quia repellat incidunt ipsum magnam id et autem?
+    
+    <a onclick="createNewWindow()">Nueva</a>
 
   </MainLayout>
+
+  <script>
+
+import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
+
+
+
+function createNewWindow() {
+  const newWindow = new WebviewWindow('uniqueLabel', {
+    url: 'about.html',
+    title: 'New Window',
+    width: 800,
+    height: 600,
+  });
+
+  newWindow.once('tauri://created', function () {
+    console.log('Window successfully created');
+  });
+
+  newWindow.once('tauri://error', function (e) {
+    console.error('Error creating window:', e);
+  });
+}
+
+// Call this function when you want to create a new window
+
+//createNewWindow();
+
+  </script>

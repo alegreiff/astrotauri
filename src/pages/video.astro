@@ -1,0 +1,32 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+
+
+---
+
+<MainLayout>
+    <h1>About</h1>
+    <button id="boton" >Muestra</button>
+    <section>
+      <video class="w-full" controls>
+        <source src="acets/121-valentin.mp4" type="video/mp4"> 
+        Your browser does not support the video tag.
+        </video>
+    </section>
+
+  </MainLayout>
+
+  <script>
+    import { resolveResource } from '@tauri-apps/api/path'
+  // alternatively, use `window.__TAURI__.path.resolveResource`
+  
+  
+  // `lang/de.json` is the value specified on `tauri.conf.json > tauri > bundle > resources`
+  const resourcePath = await resolveResource('acets')
+  alert("Hola")
+  console.log( "RESOURCE PATH", resourcePath )
+  const vid = `window.__TAURI__.fs.readTextFile`
+  
+  
+  
+  </script>
